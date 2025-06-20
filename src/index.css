@@ -1,1 +1,21 @@
 @import "tailwindcss";
+
+.see-on-hover:hover + .seen-on-hovered{
+  visibility: visible;
+  opacity: 0.9;
+}
+
+*::-webkit-scrollbar{
+  visibility: hidden;
+}
+#testimonialSection > button > svg > path{
+  transition: 0.25s ease;
+}
+
+#testimonialSection > button > svg:hover > path{
+fill:#d4af37f8
+}
+
+#testimonialSection > button > svg:active > path{
+fill:#d4af3738
+}

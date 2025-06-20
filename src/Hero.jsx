@@ -1,9 +1,9 @@
 const NavBar = () =>{
 return(
-    <nav id="nav-bar" className="bg-[#fcfbfa] flex justify-between px-[2rem] w-screen">
+    <nav id="nav-bar" className="bg-[#fcfbfa] flex justify-between px-[2rem] py-1 w-screen">
         {/* logo on navBar */}
         <div className="">
-          <img id="logo" src="./images/SoarLogo.png" alt="soar logo" className="w-[4rem]" />
+          <img id="logo" src="../images/SoarLogo.webp" alt="soar logo" className="w-[4rem]" />
           {/* <img id="logo" src="images/SOAR HQLOGO-A PNG.png" alt=""> */}
         </div>
 
@@ -106,7 +106,7 @@ return(
 const HamBurgerNav = () =>{
       <nav id="navBarRight" class="navBarRightStyle">
         <div class="rightNavBarGrp1">
-          <img src="images/SOAR HQLOGO-A PNG.png" alt="" />
+          <img src="../images/SoarLogo.webp" alt="" />
         </div>
         <div class="rightNavBarGrp2">
           <ul>
@@ -177,7 +177,7 @@ const Hero = () => {
 
 
       {/* reminant of hero section */}
-      <div className=" max-h-fit bg-[url('.`/images/soarbackground.webp')] bg-cover bg-center bg-[#0000008f] bg-blend-darken">
+      <div className=" max-h-fit bg-[url('../images/soarbackground.webp')] bg-cover bg-center bg-[#0000008f] bg-blend-darken">
         <div id="remHeroText" className="w-[60%] min-w-[80%] pt-[6rem] mx-auto font-extrabold tracking-[2px] leading-[1.6] text-5xl text-center text-[#fcfbfa]">
           <div class="remHeroText1">
             <span className="text-[#d4af35]"> Discipling </span>
