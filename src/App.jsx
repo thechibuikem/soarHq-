@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import Hero from './hero'
+import Hero from './Hero'
 import VisionStatement from './visionStatement'
 import TestimonialSection from './testimonial'
 // import Hero from './hero'

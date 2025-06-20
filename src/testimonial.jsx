@@ -1,27 +1,5 @@
-import React, { useState } from "react";
-
-// 1. Slide data
-const slideListFiller = [
-  {
-    id: 1,
-    image: "images/testimonialImages/successNwakpa.webp",
-    name: "Success Nwankpa",
-    testimony: `I just concluded my discipleship call with the steward and it was truly transformative...
-    `,
-  },
-  {
-    id: 2,
-    image: "images/testimonialImages/soarHq.webp",
-    name: "Somtochukwu Okoroafor",
-    testimony: `I just concluded my discipleship call with the steward and it was refreshing...`,
-  },
-  {
-    id: 3,
-    image: "images/testimonialImages/soarHq.webp",
-    name: "Ngozichukwu Udoka",
-    testimony: `I had my discipleship call with the steward about a week ago and I can say for a fact that I was blessed...`,
-  },
-];
+import React, { useEffect,useState } from "react";
+import { supabase } from "./supabase";//import the superbase object which serves as an API for my backend
 
 // 2. One testimonial card
 const TestimonialCard = ({ image, name, testimony, visible })=> {
@@ -55,16 +33,31 @@ const TestimonialCard = ({ image, name, testimony, visible })=> {
   );
 }
 
-// 3. Full slider section that we are exporting
+// 3. Full testimonial carousel that we are exporting
 const TestimonialSection = () => {
+  const [testimonials, setTestimonials] = useState([])//initializing my current testimonials array to be empty
   const [currentIndex, setCurrentIndex] = useState(0);
 
+    const fetchTestimonials = async () =>{
+    const {data,error} = await supabase.from('soar-hq-testimonials').select('*');//basically what this line says is wait for a response yeah, then my supabase API from the soar-hq-testimonial table; take all the columns. you would have two responses by default one set to null and one an actual value. but they can't be both null or both actual values. so basically you have just one response
+
+    if (error){
+      console.log('Error fetching',error)
+    }else{
+      setTestimonials(data)
+      // console.log(testimonials)
+    }
+  }//function to fetch testimonials
+  
+  fetchTestimonials();//run the function to get rows from the supabase testimonials table 
+
+
   const goLeft = () => {
-    setCurrentIndex((prev) => (prev - 1 + slideListFiller.length) % slideListFiller.length);
+    setCurrentIndex((prev) => (prev - 1 + testimonials.length) % testimonials.length);
   };
 
   const goRight = () => {
-    setCurrentIndex((prev) => (prev + 1) % slideListFiller.length);
+    setCurrentIndex((prev) => (prev + 1) % testimonials.length);
   };
 
   return (
@@ -99,12 +92,12 @@ const TestimonialSection = () => {
 
       {/* Slides */}
       <div className="w-full h-[75vh] flex items-center justify-center relative md:h-screen">
-        {slideListFiller.map((slide, index) => (
+        {testimonials.map((testimony, index) => (
           <TestimonialCard
-            key={slide.id}
-            image={slide.image}
-            name={slide.name}
-            testimony={slide.testimony}
+            key={testimony.id}
+            image={testimony.image}
+            name={testimony.name}
+            testimony={testimony.testimony}
             visible={index === currentIndex}
           />
         ))}
