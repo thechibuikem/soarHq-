@@ -1,17 +1,12 @@
 import { useState } from 'react'
-import Hero from './Hero'
-import VisionStatement from './visionStatement'
-import TestimonialSection from './testimonial'
-// import Hero from './hero'
+import { useEffect } from 'react'
+import Home from './pages/Home'
+
 
 function App() {
   
   return (
-    <>
-     <Hero />
-     <VisionStatement />
-     <TestimonialSection />
-    </>
+    <Home/>
   )
 }
 
