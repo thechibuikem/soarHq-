@@ -8,25 +8,30 @@ return(
 
         {/* navBar list of links */}
         <div className="hidden md:flex ">
-          <ul className="flex items-center md:gap-x-[6rem] text-md capitalize">
+          <ul className="flex items-center md:gap-x-[3rem] text-md capitalize">
             {/* home */}
             <li>
-              <a href="#heroSection" id="g2-1" class="grp2-member">home</a>
+              <a href="#heroSection" id="g2-1" className="text-base no-underline capitalize text-[#2c2b2b] transition duration-500 ease-in-out">
+                home</a>
             </li>
 
             {/* about us */}
             <li>
-              <a href="#mission" id="g2-2" class="grp2-member">about</a>
+              <a href="#mission" id="g2-2" className="text-base no-underline capitalize text-[#2c2b2b] transition duration-500 ease-in-out">
+                about</a>
             </li>
 
             {/* meet our team link */}
             <li>
-              <a href="#meetOurTeam" class="grp2-member">the workforce</a>
+              <a href="#meetOurTeam" 
+              className="text-base no-underline capitalize text-[#2c2b2b] transition duration-500 ease-in-out">
+                the workforce</a>
             </li>
 
             {/* coaching plans */}
             <li>
-              <a href="comingSoon.html" id="g2-3" class="grp2-member">Discipleship plans</a>
+              <a href="comingSoon.html" id="g2-3" className="text-base no-underline capitalize text-[#2c2b2b] transition duration-500 ease-in-out">
+                Discipleship plans</a>
             </li>
 
             {/* group to hide Elibrary, Light Podcast and Events in navbar */}
@@ -36,7 +41,7 @@ return(
                 width="36"
                 height="36"
                 viewBox="0 0 48 48"
-                className="see-on-hover relative"
+                className="see-on-hover cursor-pointer relative"
               >
                 <path
                   fill="none"
@@ -49,10 +54,10 @@ return(
               </svg>
 
               {/* the extras */}
-              <figure className="seen-on-hovered flex flex-col flex-start w-[12vw] gap-2 p-4 absolute translate-y-[20%] z-5 bg-[#fcfbfa] rounded-sm shadow-md opacity-0 invisible transition-all duration-500 ease-in-out">
+              <figure className="seen-on-hovered flex flex-col flex-start w-[12vw] gap-2 p-4 absolute translate-y-[-10%] right-2 z-5 bg-[#fcfbfa] rounded-sm shadow-md opacity-0 invisible transition-all duration-500 ease-in-out">
                 {/* Digital library */}
                 <li>
-                  <a href="elibrary.html" id="g2-4" class="grp2-member">
+                  <a href="elibrary.html" id="g2-4" className="text-base no-underline capitalize text-[#2c2b2b] transition duration-500 ease-in-out">
                     Digital Library
                   </a>
                 </li>
@@ -62,7 +67,7 @@ return(
                   <a
                     href="https://open.spotify.com/show/53QIPqFtvF2BFqNV8pn9vd?si=00cb28e4627d48f8"
                     id="g2-4"
-                    class="grp2-member"
+                   className="text-base no-underline capitalize text-[#2c2b2b] transition duration-500 ease-in-out"
                     target="_blank"
                   >
                     Light Podcast
@@ -71,7 +76,7 @@ return(
 
                 {/* events */}
                 <li>
-                  <a href="upcomingEvents.html" id="g2-4" class="grp2-member">
+                  <a href="upcomingEvents.html" id="g2-4" className="text-base no-underline capitalize text-[#2c2b2b] transition duration-500 ease-in-out">
                     Events
                   </a>
                 </li>

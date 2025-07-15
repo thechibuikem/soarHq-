@@ -13,13 +13,15 @@ const Hero = () => {
       <HamBurgerNavBar/>
       {/* reminant of hero section */}
       <div className=" h-fit w-full bg-[url('../images/soarbackground.webp')] bg-cover bg-center bg-[#0000008f] bg-blend-darken">
+      {/*discipling nations for excellence and cominion on hero */}
         <div id="remHeroText" className="md:text-[5.2rem] md:px-[3rem] md:w-[100%] w-[60%] min-w-[80%] pt-[6rem] mx-auto tracking-[2px] leading-[1.6] text-5xl  text-center text-[#fcfbfa] font-['Poppins',sans-serif] font-normal">
-          <div class="remHeroText1">
+          {/* group one(1) of text */}
+          <div>
             <span className="text-[#d4af35]"> Discipling </span>
-            <span class="span2"> Nations </span>
+            <span> Nations </span>
           </div>
-          <div class="remHeroText2">
-            {/* <br/> */}
+          {/* group two(2) of text*/}
+          <div>
             For Excellence And Dominion
           </div>
         </div>

@@ -39,7 +39,7 @@ className="hover:fill-[#d4af37]  fill-[#d4af3738] transition-all duration-200"
 //Creating testimonial Header component
 const TestimonialHeader = () => {
   return (
-     <div className="sm:text-[1.3rem] text-[1.2rem] tracking-[1px] font-normal text-[#2c2b2b] uppercase text-center">
+     <div className="sm:text-[1.3rem] text-[1.2rem] tracking-[1px] font-normal text-[#2c2b2b] uppercase text-center w-full sm:w-[100%]">
           <h3>Testimony from our Discipleship Calls</h3>
         </div>
   )
@@ -149,9 +149,9 @@ const TestimonialSection = () => {
 
   // if the testimonials are available, render the freaking slide
   return (
-    <section>
+    <section className="mt-8 md:mt-12 lg:mt-16">
     <TestimonialHeader/>
-    <div className="px-4 py-8 pb-16 w-full">
+    <div className="px-4 py-8 w-full">
         <Slider {...settings}>
           {testimonials.map((testimony) => (
             <div key={testimony.id}>

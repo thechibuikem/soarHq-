@@ -1,10 +1,9 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import { supabase } from "../config/supabase";
-import Slider from "react-slick";
-
+import Slider from "react-slick"; 
 // Make sure to import the required CSS (add these to your main CSS file or index.js)
-// import "slick-carousel/slick/slick.css";
-// import "slick-carousel/slick/slick-theme.css";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 
 // MeetOurTeam component
 const MeetOurTeamCard = ({ name, image, role }) => {
@@ -19,10 +18,12 @@ const MeetOurTeamCard = ({ name, image, role }) => {
       </div>
       <div className="flex flex-col justify-center items-center h-[25%] bg-[#d4af35] border-t border-[rgba(136,136,136,0.425)] rounded-b-lg">
         <h4 className="text-center text-[1.2rem] uppercase font-light">{name}</h4>
-        <h3 className="text-center text-[1rem] uppercase font-light text-[#f2f3f7e5]">{role}</h3>
+        <h3 className="text-center text-[1rem] uppercase font-light text-[#f2f3f7e5]" dangerouslySetInnerHTML={{__html:role}}>
+    
+        </h3>
       </div>
     </figure>
-  );
+  );    
 };
 
 // Creating Meet our team Header component
@@ -42,17 +43,15 @@ const MeetOurTeamSection = () => {
   // Improved slider settings with responsive breakpoints
   const settings = {
     className: "center",
-    cssEase: "linear",
+    cssEase: "ease-in-out",
     centerPadding: "20px", // Reduced padding
     slidesToShow: 3,
-    speed: 1500,
+    speed: 2000,
     infinite: true,
     autoplay: true,
     centerMode: true,
-    prevArrow: null,
-    nextArrow: null,
-    arrow:false,
-    autoplaySpeed: 1500,
+    arrows:false, 
+    autoplaySpeed:0,
     responsive: [
       {
         breakpoint: 1024,
@@ -64,15 +63,17 @@ const MeetOurTeamSection = () => {
       {
         breakpoint: 768,
         settings: {
-          slidesToShow: 1,
-          centerPadding: "60px",
+          slidesToShow: 2,
+             centerMode: false,
+          centerPadding: "0",
         }
       },
       {
         breakpoint: 480,
         settings: {
           slidesToShow: 1,
-          centerPadding: "20px",
+          centerMode: false,
+          centerPadding: "0",
         }
       }
     ]
@@ -98,7 +99,6 @@ const MeetOurTeamSection = () => {
         setLoading(false);
       }
     };
-    
     fetchTeamMembers();
   }, []);
 
@@ -126,18 +126,16 @@ const MeetOurTeamSection = () => {
 
   // Rendering the slides if meet our team cards are available
   return (
-    <section className="w-[80%] mx-auto h-fit bg-[#2c2b2b0b] border border-[#d4af375c] rounded overflow-hidden flex flex-col items-center justify-center gap-[3rem] pt-[3rem] pb-[4rem] mb-[8rem] max-[450px]:w-[90%] max-[450px]:gap-[2rem] max-[450px]:mb-0">
+    <section className="w-[80%] mx-auto h-fit bg-[#2c2b2b0b] border border-[#d4af375c] rounded overflow-hidden flex flex-col items-center justify-center gap-[2rem] pt-[3rem] pb-[4rem] max-[450px]:w-[90%]  max-[450px]:gap-[2rem] max-[450px]:mb-0 mt-8 md:mt-12 lg:mt-16">
       {/* Meet our team section starts */}
       <MeetOurHeader />
       
       {/* Simplified container structure */}
-      <div className="w-full px-4" style={{
-  '& .slick-prev': { display: 'none' },
-  '& .slick-next': { display: 'none' }}}>
+      <div className="w-full px-4">
         <Slider {...settings}>
           {/* Mapping to create each team card inside the slider */}
           {teamArray.map((teamMember) => (
-            <div key={teamMember.id} className="px-2">
+            <div key={teamMember.id} className="">
               <MeetOurTeamCard
                 name={teamMember.name}
                 image={teamMember.image}

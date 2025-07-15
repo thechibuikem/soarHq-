@@ -16,6 +16,11 @@ body::-webkit-scrollbar {
   opacity: 0.9;
 }
 
+.seen-on-hovered:hover{
+  visibility: visible;
+  opacity: 0.9;
+}
+
 *::-webkit-scrollbar{
   display: none;
 }
@@ -34,3 +39,6 @@ fill:#d4af3738
 #remHeroText{
   text-shadow:1px 1px 0.25rem #000000e8; }
 
+*{
+  font-family: "poppins";
+}

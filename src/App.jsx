@@ -1,12 +1,10 @@
-import { useState } from 'react'
-import { useEffect } from 'react'
 import Home from './pages/Home'
+import Elibrary from './pages/Elibrary'
 
-
-function App() {
+const App=()=> {
   
   return (
-    <Home/>
+    <Elibrary/>
   )
 }
 
