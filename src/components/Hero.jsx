@@ -1,5 +1,6 @@
 import NavBar from '../components/NavBar'
 import HamBurgerNavBar from '../components/HamBurgerNavBar'
+import { Link } from 'react-router-dom';
 
 
 const Hero = () => {
@@ -29,9 +30,8 @@ const Hero = () => {
         <div id="discoverXlearnmore" className=" flex flex-col w-screen  h-fit py-[4rem] item-center justify-center md:pt-[6rem]">
           <button
             id="discover" className="md:text-2xl text-xl text-[#f2f3f7] max-w-[80%] w-[80%] md:w-fit md:px-12 bg-[#d4af35] border-1 border-[#f2f3f7] mx-auto py-4  transition-all duration-500 ease-in-out uppercase leading-[1.4] rounded-sm"
-            onClick={() => window.location.href = `elibrary.html`}
           >
-            Digital Library
+            <Link  to="/Elibrary"> Digital Library</Link>
           </button>
         </div>
       </div>

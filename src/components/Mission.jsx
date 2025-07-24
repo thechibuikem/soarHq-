@@ -1,7 +1,7 @@
 import { useState,useEffect } from "react";
 
 const MissionHeader =()=>{return(
-    <div className="sm:text-[1.3rem] text-[1.2rem] tracking-[1px] font-normal text-[#2c2b2b] uppercase text-center">
+    <div className="sm:text-[1.3rem] text-[1.2rem] text-[#f2f3f7] tracking-[1px] font-normal md:text-[#2c2b2b] uppercase text-center">
           <h3>our mission</h3>
         </div> 
 )}
@@ -37,7 +37,7 @@ const MissionSection = ()=>{
 return(
         <section className="w-full h-[80vh] flex flex-col justify-center items-center gap-[4.5rem]
  bg-[url('https://uokpdllmsspezsqltpxj.supabase.co/storage/v1/object/sign/soar-hq-bucket/mission.jpg?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV9hYWRmMGY1MS04ZDNiLTQ3OTgtYTg3NS0xZGIwMjMxZGNhNDIiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJzb2FyLWhxLWJ1Y2tldC9taXNzaW9uLmpwZyIsImlhdCI6MTc1MjIyNTU3NSwiZXhwIjoxNTc4NTUyMjI1NTc1fQ.bwLt1hPF9Laxt5HZpdnL1lYKrxL3Z95sgtDBugkBE2g')]
-  bg-blend-darken bg-cover bg-[#000000] sm:bg-none sm:bg-transparent md:gap-8 md:h-fit 
+  bg-blend-darken bg-cover bg-[#00000094] sm:bg-none sm:bg-transparent md:gap-8 md:h-fit 
   md:text-[#f2f3f7] md:px-[3rem] mt-8 md:mt-12 lg:mt-16">
 <MissionHeader/>
 <MissionBody/>

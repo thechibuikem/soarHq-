@@ -1,3 +1,7 @@
+import { useState } from "react"
+import Hamburger from './Hamburger'
+import { Link } from "react-router-dom"
+
 const NavBar = () =>{
 return(
     <nav id="nav-bar" className="bg-[#fcfbfa] flex justify-between items-center px-[2rem] py-1 w-full md:px-[3rem]">
@@ -11,8 +15,8 @@ return(
           <ul className="flex items-center md:gap-x-[3rem] text-md capitalize">
             {/* home */}
             <li>
-              <a href="#heroSection" id="g2-1" className="text-base no-underline capitalize text-[#2c2b2b] transition duration-500 ease-in-out">
-                home</a>
+              <Link to="/" id="g2-1" className="text-base no-underline capitalize text-[#2c2b2b] transition duration-500 ease-in-out">
+                home</Link>
             </li>
 
             {/* about us */}
@@ -30,7 +34,7 @@ return(
 
             {/* coaching plans */}
             <li>
-              <a href="comingSoon.html" id="g2-3" className="text-base no-underline capitalize text-[#2c2b2b] transition duration-500 ease-in-out">
+              <a href="#" id="g2-3" className="text-base no-underline capitalize text-[#2c2b2b] transition duration-500 ease-in-out">
                 Discipleship plans</a>
             </li>
 
@@ -57,9 +61,9 @@ return(
               <figure className="seen-on-hovered flex flex-col flex-start w-[12vw] gap-2 p-4 absolute translate-y-[-10%] right-2 z-5 bg-[#fcfbfa] rounded-sm shadow-md opacity-0 invisible transition-all duration-500 ease-in-out">
                 {/* Digital library */}
                 <li>
-                  <a href="elibrary.html" id="g2-4" className="text-base no-underline capitalize text-[#2c2b2b] transition duration-500 ease-in-out">
+                  <Link to="/Elibrary" id="g2-4" className="text-base no-underline capitalize text-[#2c2b2b] transition duration-500 ease-in-out">
                     Digital Library
-                  </a>
+                  </Link>
                 </li>
 
                 {/* other */}
@@ -76,9 +80,9 @@ return(
 
                 {/* events */}
                 <li>
-                  <a href="upcomingEvents.html" id="g2-4" className="text-base no-underline capitalize text-[#2c2b2b] transition duration-500 ease-in-out">
+                  <Link to="/Events" id="g2-4" className="text-base no-underline capitalize text-[#2c2b2b] transition duration-500 ease-in-out">
                     Events
-                  </a>
+                  </Link>
                 </li>
               </figure>
             </li>
@@ -86,25 +90,12 @@ return(
         </div>
 
         {/* navBar hamburger icon */}
-        <button id="inviNav" className="md:hidden cursor-pointer">
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="32"
-            height="32"
-            viewBox="0 0 16 16"
-          >
-            <path
-              fill="#d4af35"
-              fillRule="evenodd"
-              d="M1.25 3.25A.75.75 0 0 1 2 2.5h12A.75.75 0 0 1 14 4H2a.75.75 0 0 1-.75-.75m0 4.75A.75.75 0 0 1 2 7.25h12a.75.75 0 0 1 0 1.5H2A.75.75 0 0 1 1.25 8M2 12a.75.75 0 0 0 0 1.5h12a.75.75 0 0 0 0-1.5z"
-              clipRule="evenodd"
-            />
-          </svg>
-        </button>
+<Hamburger/>
 
         {/* main navBar stops */}
       </nav>
 )
 }
+
 
 export default NavBar

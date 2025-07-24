@@ -1,3 +1,4 @@
+                import { Link } from "react-router-dom"
 const CompanyInfo = ()=>{
     return(
           <div className="col-span-1 md:col-span-2">
@@ -90,11 +91,13 @@ const Support = () =>{return(
 )}
 
 const DigitalLibrary = () =>{
-    return(
+  return(
         <figure>
              <div className="flex flex-col " id="eLibraryBtnSection">
             <h2 className="text-lg font-semibold mb-4">Digital library</h2>
-            <button className="bg-[#d4af37] border border-[#f2f3f7] rounded-sm uppercase py-2  cursor-pointer hover:shadow-neutral-800 shadow-lg" id="ELibraryBtn">explore</button>
+            <button className="bg-[#d4af37] border border-[#f2f3f7] rounded-sm uppercase py-2  cursor-pointer hover:shadow-neutral-800 shadow-lg" id="ELibraryBtn">
+              <Link to="/Elibrary">explore</Link>
+              </button>
           </div>
         </figure>
     )
