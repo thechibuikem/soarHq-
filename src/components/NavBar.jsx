@@ -12,7 +12,7 @@ const NavBar = () => {
       <div className="">
         <img
           id="logo"
-          src="../images/SoarLogo.webp"
+          src="https://uokpdllmsspezsqltpxj.supabase.co/storage/v1/object/sign/soar-hq-bucket/SoarLogo.webp?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV9hYWRmMGY1MS04ZDNiLTQ3OTgtYTg3NS0xZGIwMjMxZGNhNDIiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJzb2FyLWhxLWJ1Y2tldC9Tb2FyTG9nby53ZWJwIiwiaWF0IjoxNzU0MjQ4MjE2LCJleHAiOjk1MzAyNDgyMTZ9.lTcvMf1rb7RzJGAjvJiS4C7nJkSJQ5Ck0VH7dzoM9jw"
           alt="soar logo"
           className="w-[4rem] md:w-[5rem]"
         />
