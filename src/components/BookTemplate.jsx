@@ -1,37 +1,46 @@
 // FlipbookViewer.jsx
-import React, { useEffect, useRef } from 'react';
-import { useLocation, useNavigate } from 'react-router-dom';
+import React, { useEffect, useRef } from "react";
+import { useLocation, useNavigate } from "react-router-dom";
+import NavBar from "./NavBar";
+import Footer from "./Footer";
 
 const FlipbookViewer = () => {
   const location = useLocation();
   const navigate = useNavigate();
-  const containerRef = useRef(null);
+  const containerRef = useRef(null); //used to target dom elements
 
   // Get the array that was passed from the clicking component
   const booksArray = location.state?.booksArray || [];
-  const bookTitle = location.state?.bookTitle || 'Unknown Book';
+  const bookTitle = location.state?.bookTitle || "Unknown Book";
 
   useEffect(() => {
-    // This is your original logic converted to React
+    // This is my original logic converted to React
     if (booksArray.length > 0 && containerRef.current && window.$) {
-      const pagesArray = booksArray.map(book =>({
-          src: book.content,     // No backticks - direct access
-          thumb: book.content,   // Using same image for thumbnail
-          title: `book.pageNumber`,
-      }))
+      const pagesArray = booksArray.map((book) => ({
+        src: book.content,
+        thumb: book.content,
+        title: `book.pageNumber`,
+      }));
 
-      // Initialize flipbook - exactly like your original code
+      // Initialize flipbook with options to disable overlay
       window.$(containerRef.current).flipBook({
         pages: pagesArray,
+        lightBox: false, // Disable lightbox mode
+        autoSize: false, // Don't auto-size to viewport
+        height: 600, // Set specific height
+        width: 800, // Set specific width
       });
 
-      console.log('Flipbook initialized with pages:', pagesArray);
+      window.$(containerRef.current).flipBook({
+        pages: pagesArray,
+      }); //we are targetting the flipBook div and setting it's content to the Array
+
     }
 
-    // Cleanup when component unmounts
+    // Cleanup when component unmounts to avoid overstacking of flipbooks
     return () => {
       if (containerRef.current && window.$ && window.$.fn.flipBook) {
-        window.$(containerRef.current).flipBook('destroy');
+        window.$(containerRef.current).flipBook("destroy");
       }
     };
   }, [booksArray]);
@@ -42,7 +51,7 @@ const FlipbookViewer = () => {
       <div className="min-h-screen flex items-center justify-center">
         <div className="text-center">
           <h2 className="text-2xl mb-4">No book data found</h2>
-          <button 
+          <button
             onClick={() => navigate(-1)}
             className="bg-blue-500 text-white px-4 py-2 rounded"
           >
@@ -54,26 +63,17 @@ const FlipbookViewer = () => {
   }
 
   return (
-    <div className="min-h-screen bg-gray-900">
-      {/* Header with book title and back button */}
-      <div className="bg-black text-white p-4 flex justify-between items-center">
-        <h1 className="text-2xl font-bold">{bookTitle}</h1>
-        <button 
-          onClick={() => navigate(-1)}
-          className="text-white hover:text-gray-300 text-xl"
-        >
-          ← Back to Library
-        </button>
-      </div>
 
-      {/* This div is equivalent to your <div id="container"></div> */}
-      <div 
-        ref={containerRef} 
-        id="flipbook-container"
-        className="w-full h-screen"
-      />
-    </div>
+      <div ref={containerRef} id="" className="w-full max-h-fit"/>
+
   );
 };
 
 export default FlipbookViewer;
+
+// <button
+//   onClick={() => navigate(-1)}
+//   className="text-white hover:text-gray-300 text-xl"
+// >
+//   ← Back to Library
+// </button>
