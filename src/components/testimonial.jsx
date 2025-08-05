@@ -80,7 +80,7 @@ const TestimonialSection = () => {
 
   // Carousel settings with custom arrows
   const settings = {
-    dots: true,
+    dots: false,
     infinite: testimonials.length > 1,
     speed: 600,
     slidesToShow: 1,
