@@ -42,3 +42,21 @@ fill:#d4af3738
 *{
   font-family: "poppins",sans-serif;
 }
+
+/* animation for hero image*/
+@keyframes fadeIn {
+  0% {
+    opacity: 0.2;
+  }
+  20% {
+    opacity: 0.4;
+  }
+
+  80% {
+    opacity: 0.9;
+  }
+}
+
+.hero-image {
+  animation: fadeIn .75s ease-in-out forwards;
+}

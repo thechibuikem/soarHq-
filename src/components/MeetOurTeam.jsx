@@ -105,7 +105,7 @@ const MeetOurTeamSection = () => {
   // Show loading state
   if (loading) {
     return (
-      <section className="w-[80%] mx-auto h-fit bg-[#2c2b2b0b] border border-[#d4af375c] rounded overflow-hidden flex flex-col items-center justify-center gap-[3rem] pt-[3rem] pb-[4rem] mb-[8rem] max-[450px]:w-[90%] max-[450px]:gap-[2rem] max-[450px]:mb-0">
+      <section className="w-[80%] mx-auto h-fit bg-[#2c2b2b0b] border border-[#d4af375c] rounded overflow-hidden flex flex-col items-center justify-center gap-[3rem] pt-[4rem] pb-[4rem] mb-[8rem] max-[450px]:w-[90%] max-[450px]:gap-[2rem] max-[450px]:mb-0">
         <div className="flex justify-center items-center min-h-[400px]">
           <div className="text-lg animate-pulse">Loading Team Members...</div>
         </div>
@@ -126,7 +126,7 @@ const MeetOurTeamSection = () => {
 
   // Rendering the slides if meet our team cards are available
   return (
-    <section className="w-[80%] mx-auto h-fit bg-[#2c2b2b0b] border border-[#d4af375c] rounded overflow-hidden flex flex-col items-center justify-center gap-[2rem] pt-[3rem] pb-[4rem] max-[450px]:w-[90%]  max-[450px]:gap-[2rem] max-[450px]:mb-0 mt-8 md:mt-12 lg:mt-16">
+    <section className="w-[80%] mx-auto h-fit bg-[#2c2b2b0b] border border-[#d4af375c] rounded overflow-hidden flex flex-col items-center justify-center gap-[2rem] pt-[4rem] pb-[4rem] max-[450px]:w-[90%]  max-[450px]:gap-[2rem] max-[450px]:mb-0 mt-8 mt-16 md:mt-20">
       {/* Meet our team section starts */}
       <MeetOurHeader />
       

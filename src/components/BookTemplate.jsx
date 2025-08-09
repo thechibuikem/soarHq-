@@ -31,7 +31,7 @@ const FlipbookViewer = () => {
             pages: pagesArray,
             lightBox: false,
             autoSize: false,
-            height: 600,
+            height: fit,
             width: 800,
           });
         } catch (error) {
@@ -73,7 +73,7 @@ const FlipbookViewer = () => {
   }
 
   return (
-    <div className="min-h-screen">
+    <div className="max-h-screen">
       <div ref={containerRef} className="w-full max-h-fit" />
     </div>
   );
