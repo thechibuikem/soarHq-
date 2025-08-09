@@ -31,7 +31,7 @@ const FlipbookViewer = () => {
             pages: pagesArray,
             lightBox: false,
             autoSize: false,
-            height: fit,
+            height: 600,
             width: 800,
           });
         } catch (error) {
