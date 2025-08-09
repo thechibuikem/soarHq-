@@ -1,51 +1,61 @@
 // FlipbookViewer.jsx
 import React, { useEffect, useRef } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
-import NavBar from "./NavBar";
-import Footer from "./Footer";
 
 const FlipbookViewer = () => {
   const location = useLocation();
   const navigate = useNavigate();
-  const containerRef = useRef(null); //used to target dom elements
+  const containerRef = useRef(null);
 
-  // Get the array that was passed from the clicking component
   const booksArray = location.state?.booksArray || [];
   const bookTitle = location.state?.bookTitle || "Unknown Book";
 
   useEffect(() => {
-    // This is my original logic converted to React
-    if (booksArray.length > 0 && containerRef.current && window.$) {
-      const pagesArray = booksArray.map((book) => ({
-        src: book.content,
-        thumb: book.content,
-        title: `book.pageNumber`,
-      }));
+    // Wait a bit for jQuery and flipBook to be fully ready
+    const initFlipbook = () => {
+      if (!window.$ || !window.$.fn.flipBook) {
+        console.error('jQuery or flipBook not available');
+        return;
+      }
 
-      // Initialize flipbook with options to disable overlay
-      window.$(containerRef.current).flipBook({
-        pages: pagesArray,
-        lightBox: false, // Disable lightbox mode
-        autoSize: false, // Don't auto-size to viewport
-        height: 600, // Set specific height
-        width: 800, // Set specific width
-      });
+      if (booksArray.length > 0 && containerRef.current) {
+        const pagesArray = booksArray.map((book, index) => ({
+          src: book.content,
+          thumb: book.content,
+          title: `Page ${index + 1}`, // Fixed template literal
+        }));
 
-      window.$(containerRef.current).flipBook({
-        pages: pagesArray,
-      }); //we are targetting the flipBook div and setting it's content to the Array
+        // Initialize flipbook ONLY ONCE
+        try {
+          window.$(containerRef.current).flipBook({
+            pages: pagesArray,
+            lightBox: false,
+            autoSize: false,
+            height: 600,
+            width: 800,
+          });
+        } catch (error) {
+          console.error('FlipBook initialization error:', error);
+        }
+      }
+    };
 
-    }
+    // Small delay to ensure everything is loaded
+    const timer = setTimeout(initFlipbook, 100);
 
-    // Cleanup when component unmounts to avoid overstacking of flipbooks
     return () => {
+      clearTimeout(timer);
+      // Cleanup
       if (containerRef.current && window.$ && window.$.fn.flipBook) {
-        window.$(containerRef.current).flipBook("destroy");
+        try {
+          window.$(containerRef.current).flipBook("destroy");
+        } catch (error) {
+          console.error('FlipBook destroy error:', error);
+        }
       }
     };
   }, [booksArray]);
 
-  // Handle case where no data was passed
   if (!booksArray || booksArray.length === 0) {
     return (
       <div className="min-h-screen flex items-center justify-center">
@@ -63,9 +73,9 @@ const FlipbookViewer = () => {
   }
 
   return (
-
-      <div ref={containerRef} id="" className="w-full max-h-fit"/>
-
+    <div className="min-h-screen">
+      <div ref={containerRef} className="w-full max-h-fit" />
+    </div>
   );
 };
 
