@@ -70,10 +70,3 @@ const FlipbookViewer = () => {
 };
 
 export default FlipbookViewer;
-
-// <button
-//   onClick={() => navigate(-1)}
-//   className="text-white hover:text-gray-300 text-xl"
-// >
-//   ← Back to Library
-// </button>

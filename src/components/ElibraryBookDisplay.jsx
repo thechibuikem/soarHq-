@@ -92,18 +92,4 @@ const ElibraryBookDisplaySection = () => {
   );
 };
 
-// Remove these unused components or move them elsewhere
-const ElibraryHeader = () => {
-  return <h3></h3>;
-};
-
-const ElibraryBook = () => {
-  return (
-    <>
-      <figure className="bg-[url()]"></figure>
-      <h4></h4>
-    </>
-  );
-};
-
 export default ElibraryBookDisplaySection;
