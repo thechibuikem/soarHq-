@@ -54,6 +54,7 @@ const TestimonialCard = ({ image, name, testimony }) => {
         <img
           src={image}
           alt={name}
+          loading="lazy"
           className="w-20 aspect-square object-cover rounded-full border border-[#d4af37f8] my-6 md:w-32 md:my-12"
         />
       </div>
@@ -97,7 +98,7 @@ const TestimonialSection = () => {
         breakpoint: 768,
         settings: {
           arrows: false, // Hide arrows on mobile for better UX
-          dots: true,
+          dots: false,
         }
       }
     ]
