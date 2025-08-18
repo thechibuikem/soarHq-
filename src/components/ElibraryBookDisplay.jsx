@@ -72,7 +72,7 @@ const ElibraryBookDisplaySection = () => {
   // Rest of your JSX stays exactly the same...
   return (
     <figure className="mx-[1rem] md:mx-[3rem] h-fit md:h-[45vh md:rounded-md w-auto bg-[#00000031] bg-cover text-white flex flex-col sm:flex-row justify-end mt-8 md:mt-12 lg:mt-16 mb-[-0.9rem] sm:mb-0">
-      <section className="w-[80%] md:w-full h-fit grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 mx-[1rem] my-[2rem] md:mb-[3rem] md:pt-[3rem] md:mx-[3rem] md:gap-y-4">
+      <section className="w-[80%] md:w-full h-fit grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 mx-[1rem] my-[2 rem] md:mb-[3rem] md:pt-[3rem] md:mx-[3rem] md:gap-y-4">
         {booksArray.map((book, index) => (
           <div key={index} className="w-fit">
             <figure

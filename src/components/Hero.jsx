@@ -13,7 +13,7 @@ const Hero = () => {
       {/* hamburger nav bar */}
       <HamBurgerNavBar/>
       {/* reminant of hero section */}
-      <div className="hero-image h-fit w-full bg-[url('../images/soarbackground.webp')] bg-cover bg-center bg-[#0000008f] bg-blend-darken">
+      <div className="fade-in h-fit w-full bg-[url('../images/soarbackground.webp')] bg-cover bg-center bg-[#0000008f] bg-blend-darken">
       {/*discipling nations for excellence and cominion on hero */}
         <div id="remHeroText" className="md:text-[5.2rem] md:px-[3rem] md:w-[100%] w-[60%] min-w-[80%] pt-[6rem] mx-auto tracking-[2px] leading-[1.6] text-5xl  text-center text-[#fcfbfa] font-['Poppins',sans-serif] font-normal">
           {/* group one(1) of text */}

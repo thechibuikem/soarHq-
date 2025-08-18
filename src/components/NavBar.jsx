@@ -19,7 +19,7 @@ const NavBar = () => {
       </div>
 
       {/* navBar list of links */}
-      <div className="hidden md:flex ">
+      <div className="hidden md:flex">
         <ul className="flex items-center md:gap-x-[3rem] text-md capitalize">
           {/* home */}
           <li>
@@ -84,7 +84,7 @@ const NavBar = () => {
             </svg>
 
             {/* the extras */}
-            <figure className="seen-on-hovered flex flex-col flex-start w-[12vw] gap-2 p-4 absolute translate-y-[-10%] right-2 z-5 bg-[#fcfbfa] rounded-sm shadow-md opacity-0 invisible transition-all duration-500 ease-in-out">
+            <figure className="seen-on-hovered flex flex-col flex-start w-[12vw] gap-2 p-4 absolute translate-y-[-10%] right-2 z-5 bg-[#fcfbfa] rounded-sm shadow-md opacity-0  transition-all duration-500 ease-in-out">
               {/* Digital library */}
               <li>
                 <Link

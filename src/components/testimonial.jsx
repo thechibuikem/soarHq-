@@ -92,7 +92,7 @@ const TestimonialSection = () => {
     arrows: testimonials.length > 1,
     prevArrow: <CustomPrevArrow />,
     nextArrow: <CustomNextArrow />,
-    dotsClass: "slick-dots !bottom-[-2]  text-[#d4af37] ",
+    // dotsClass: "slick-dots !bottom-[-2]  text-[#d4af37] ",
     responsive: [
       {
         breakpoint: 768,
@@ -104,22 +104,25 @@ const TestimonialSection = () => {
     ]
   };
 
+  // sideEffect of loading tesimonial section 
   useEffect(() => {
     const fetchTestimonials = async () => {
       try {
         setLoading(true);
-        const { data, error } = await supabase
+        const { data, error } = await supabase 
           .from('soar-hq-testimonials')
           .select('*');
 
         if (error) {
-          console.error('Error fetching testimonials:', error);
+          console.error('Supabase encountered error while fetching testimonials: ', error);
           return;
         }
 
         console.log(data, "the testimonials");
         setTestimonials(data || []);
-      } catch (err) {
+      } 
+      //error in fetching objects from supabase
+      catch (err) {
         console.error('Unexpected error:', err);
       } finally {
         setLoading(false);
