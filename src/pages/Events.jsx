@@ -5,7 +5,7 @@ import { supabase } from "../config/supabase";
 import EventHeader from "../components/EventHeader";
 import EventsContainer from "../components/EventsContainer";
 import NavBar from "../components/NavBar";
-import Footer from "../components/Footer"
+import Footer from "../components/Footer";
 
 const EventsPage = () => {
   // Move all your state from EventsContainer here
@@ -16,11 +16,11 @@ const EventsPage = () => {
 
   useEffect(() => {
     const fetchEvents = async () => {
-      // Copy your EXACT fetchEvents function here
+      // the fetchEvents function that fetches event objects from supabase
       try {
         setLoading(true);
         const { data, error } = await supabase.from("EventsSoarHQ").select("*");
-
+        // format the date and time to actual js time objects and add each of them to the fetched objects to run a comparison
         if (data) {
           const formattedEvents = data.map((event) => {
             const rawDate = new Date(event.Date);
@@ -80,29 +80,28 @@ const EventsPage = () => {
     fetchEvents();
   }, []);
 
-  // NEW: Toggle function
+  // Function to update Boolean variable that determines if we show upcoming events
   const toggleView = () => {
     setShowUpcoming(!showUpcoming);
   };
 
-  // NEW: Determine which events to show
+  // Determining which event to show either upcoming or all events, initializing a variable using tenary operator.
   const eventsToShow = showUpcoming ? upcomingEventsContainer : eventsContainer;
 
   return (
     <div>
-
-      <NavBar/>
-      <EventHeader 
-        showUpcoming={showUpcoming} 
+      <NavBar />
+      <EventHeader
+        showUpcoming={showUpcoming}
         toggleView={toggleView}
         upcomingCount={upcomingEventsContainer.length}
       />
-      <EventsContainer 
+      <EventsContainer
         eventsToShow={eventsToShow}
         loading={loading}
         showUpcoming={showUpcoming}
       />
-      <Footer/>
+      <Footer />
     </div>
   );
 };

@@ -3,7 +3,23 @@
 import { useState } from "react"; // Remove useEffect since we're not fetching here anymore
 
 // EventCard stays exactly the same
-const EventCard = ({ image, title, description, date, time, location }) => {
+const EventCard = ({ image, title, description, date, time, location, link, isExpired }) => {
+
+  const handleButtonClick = ()=>{
+    // if event is expired
+    if (isExpired){
+      alert(`SoarHQ wishes to inform you that the ${title} event has expired`);
+      return;
+    }
+
+        // Event is still active - open registration
+    if (registrationLink) {
+      window.open(link, '_blank'); // Opens Google Form in new tab
+    } else {
+      alert("Registration link is not available yet.");
+    }
+  }
+
   return (
     <figure className="bg-white rounded-lg overflow-hidden shadow-sm flex flex-col h-[30rem] max-h-[32rem] aspect-[2/3] transition-transform duration-300 ease-in-out hover:-translate-y-1 hover:shadow-md border-1 border-[#00000010]">
       {/* Image Section */}
@@ -13,6 +29,13 @@ const EventCard = ({ image, title, description, date, time, location }) => {
           alt={title}
           className="absolute top-0 left-0 w-full h-full object-cover transition-all duration-700 ease-in-out hover:z-10 hover:h-[30rem] hover:max-h-[32rem]"
         />
+
+      {/* if the event is expired display this overlay */}
+        {isExpired && (
+          <div className="absolute top-2 right-2 bg-red-500 text-white px-2 py-1 rounded text-xs font-semibold">
+            EXPIRED
+          </div>
+        )}
       </div>
 
       {/* Content */}
@@ -36,21 +59,34 @@ const EventCard = ({ image, title, description, date, time, location }) => {
         </div>
       </div>
 
-      {/* Footer */}
+     {/* Footer */}
       <div className="px-5 pb-5">
-        <button className="w-full px-5 py-2 border border-gray-200 text-gray-700 rounded-md transition duration-300 hover:bg-[#d4af37] hover:text-white hover:border-white cursor-pointer">
-          Register
+        <button 
+          onClick={handleButtonClick}
+          className={`w-full px-5 py-2 border rounded-md transition duration-300 cursor-pointer ${
+            isExpired 
+              ? 'border-red-200 text-red-500 bg-red-50 hover:bg-red-100' // Expired styling
+              : 'border-gray-200 text-gray-700 hover:bg-[#d4af37] hover:text-white hover:border-white' // Active styling
+          }`}
+        >
+          {isExpired ? 'Event Expired' : 'Register Now'}
         </button>
-      </div>
+        </div>
     </figure>
   );
 };
 
 // Updated EventsContainer - now receives props instead of fetching data
 const EventsContainer = ({ eventsToShow, loading, showUpcoming }) => {
-  // Remove all the useState and useEffect - data comes from props now!
-  
-  // Keep your existing loading logic
+  // Helper function to check if event is expired (moved from parent)
+  const isEventExpired = (event) => {
+    const today = new Date();
+    const eventDate = new Date(event.RawDate);
+    today.setHours(0, 0, 0, 0);
+    eventDate.setHours(0, 0, 0, 0);
+    return eventDate <= today; // Event is expired if date has passed
+  };
+
   if (loading) {
     return (
       <div className="slider-container flex justify-center items-center min-h-[400px]">
@@ -59,7 +95,6 @@ const EventsContainer = ({ eventsToShow, loading, showUpcoming }) => {
     );
   }
 
-  // Update the empty state to be dynamic
   if (eventsToShow.length === 0) {
     return (
       <div className="slider-container flex justify-center items-center min-h-[400px]">
@@ -70,7 +105,6 @@ const EventsContainer = ({ eventsToShow, loading, showUpcoming }) => {
     );
   }
 
-  // Keep your existing render logic, just use eventsToShow instead of eventsContainer
   return (
     <section
       id="event-grid"
@@ -85,6 +119,8 @@ const EventsContainer = ({ eventsToShow, loading, showUpcoming }) => {
             time={e.Time}
             date={e.Date}
             location={e.Location}
+            isExpired={isEventExpired(e)}           // NEW: Pass expiry status
+            registrationLink={e.RegistrationLink}   // NEW: Pass registration link
           />
         </div>
       ))}
