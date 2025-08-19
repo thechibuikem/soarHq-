@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
 
 // hamburger
 const Hamburger = () => {
@@ -55,13 +56,10 @@ const Hamburger = () => {
         </button>
 
         <div className="bg-black/40 text-white mt-[4rem] mr-[2rem] px-[6rem] py-[2rem] flex flex-col justify-end self-end gap-y-[1rem] text-[1rem] rounded-md">
-          <a href="">Home</a>
-          <a href="">About</a>
-          <a href="">Stewards</a>
-          <a href="">Discipleship Plans</a>
-          <a href="">Digital Library</a>
-          <a href="">Light Podcast</a>
-          <a href="">Events</a>
+          <Link to="/">Home</Link>
+          <Link to="/Elibrary">ELibrary</Link>
+          <a  href="https://open.spotify.com/show/53QIPqFtvF2BFqNV8pn9vd?si=00cb28e4627d48f8">Light Podcast</a>
+          <Link to="/Events">Events</Link>
         </div>
       </div>
     </>

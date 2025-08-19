@@ -3,13 +3,13 @@ import TestimonialSection from "../components/testimonial";
 import MeetOurTeamSection from "../components/MeetOurTeam";
 import MissionSection from "../components/Mission";
 import Footer from "../components/Footer";
-// import VisionStatement from "../components/VisionStatement.jsx";
+import SoarVision from "../components/SoarVision";
 
 const Home = () => {
   return (
     <>
       <Hero />
-      {/* <VisionStatement /> */}
+    <SoarVision/>
       <TestimonialSection />
       <MeetOurTeamSection />
       <MissionSection />
