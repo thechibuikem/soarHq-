@@ -4,7 +4,8 @@ import { useState } from "react"; // Remove useEffect since we're not fetching h
 
 // EventCard stays exactly the same
 const EventCard = ({ image, title, description, date, time, location, link, isExpired }) => {
-// function to handle click of a button
+
+  // function to handle click of a button
   const handleButtonClick = ()=>{
     // if event is expired
     if (isExpired){
@@ -23,12 +24,12 @@ const EventCard = ({ image, title, description, date, time, location, link, isEx
   return (
     <figure className="bg-white rounded-lg overflow-hidden shadow-sm flex flex-col h-[30rem] max-h-[32rem] aspect-[2/3] transition-transform duration-300 ease-in-out hover:-translate-y-1 hover:shadow-md border-1 border-[#00000010]">
       {/* Image Section */}
-      <div className="relative w-full pt-[56.25%]">
+      <div className="relative w-full pt-[56.25%] overflow-hidden">
         {/* image of the card */}
         <img
           src={image}
           alt={title}
-          className="absolute top-0 left-0 w-full h-full object-cover transition-all duration-700 ease-in-out hover:z-10 hover:h-[30rem] hover:max-h-[32rem]"
+         className="absolute top-0 left-0 w-full h-full object-cover transition-transform duration-700 ease-in-out hover:z-10 hover:h-[30rem]"
         />
 
       {/* if the event is expired display this banner */}
