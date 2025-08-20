@@ -9,7 +9,7 @@ const Home = () => {
   return (
     <>
       <Hero />
-    <SoarVision/>
+      <SoarVision/>
       <TestimonialSection />
       <MeetOurTeamSection />
       <MissionSection />
